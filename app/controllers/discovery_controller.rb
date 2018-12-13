@@ -19,8 +19,9 @@ class DiscoveryController < ApplicationController
         href: IdToken.config[:issuer]
       }]
     }
+
     jrd[:subject] = params.require(:resource) if params.has_key?(:resource)
-    render json: jrd, content_type: Mime::JRD
+    render json: jrd, content_type: :jrd
   end
 
   def openid_configuration

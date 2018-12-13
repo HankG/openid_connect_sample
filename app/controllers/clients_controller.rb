@@ -6,7 +6,6 @@ class ClientsController < ApplicationController
   end
 
   def create
-    puts params.require(:client)
     @client = current_account.clients.new params.require(:client).permit(:name, :redirect_uri)
     if @client.save
       redirect_to dashboard_url, flash: {

@@ -5,4 +5,10 @@ class Scope < ActiveRecord::Base
   has_many :authorizations, through: :authorization_scopes
 
   validates :name, presence: true, uniqueness: true
+
+  OPENID =  'openid'
+  PROFILE = 'profile'
+  EMAIL =   'email'
+  ADDRESS = 'address'
+  PHONE =   'phone'
 end
