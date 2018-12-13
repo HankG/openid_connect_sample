@@ -19,6 +19,7 @@
             <%= form_tag new_authorization_path, method: :get do %>
               <%= hidden_field_tag :client_id, client.identifier %>
               <%= hidden_field_tag :response_type, response_type %>
+              <%= hidden_field_tag :nonce, SecureRandom.hex %>
               <%= hidden_field_tag :scope, Scope.all.collect(&:name).join(' ') %>
               <%= submit_tag response_type %>
             <% end %>
@@ -27,8 +28,8 @@
       </ul>
     </nav>
     <footer>
-      <%= link_to 'edit'.t, edit_client_path(client) %>
-      <%= link_to 'destroy'.t, client_path(client), :class => 'destroy', method: :delete %>
+      <%= button_to 'edit', edit_client_path(client), method: :get %>
+      <%= button_to 'delete', client_path(client), :class => :destroy, method: :delete %>
     </footer>
   </details>
 </article>

@@ -1,4 +1,4 @@
-class CreateConnectFacebooks < ActiveRecord::Migration
+class CreateConnectFacebooks < ActiveRecord::Migration[5.1]
   def self.up
     create_table :connect_facebook do |t|
       t.belongs_to :account

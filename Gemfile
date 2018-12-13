@@ -1,20 +1,18 @@
 source 'http://rubygems.org'
 
-gem 'rails', '~>3.2'
-gem 'jquery-rails'
-gem 'squeel'
+gem "rails", "5.1.6"
 gem 'constant_cache'
+gem 'jquery-rails'
 gem 'html5_validators'
 gem 'validate_url'
 gem 'validate_email'
-gem 'fb_graph'
 gem 'rack-oauth2'
 gem 'openid_connect'
-gem 'public_suffix', '< 3.0'
-gem 'json-jwt', '<= 1.9.2'
+gem 'public_suffix', '3.0.0'
+gem 'json-jwt', '<= 1.9.4'
 
 group :development, :test do
-  gem 'sqlite3'
+  gem 'pg', '~> 1.1', '>= 1.1.3'
   gem 'test-unit', '~> 3.0'
   gem 'puma'
 end
@@ -24,6 +22,6 @@ group :test do
 end
 
 group :production do
-  gem 'pg', '~> 0.11'
+  gem 'pg', '~> 1.1', '>= 1.1.3'
   gem 'rack-ssl', :require => 'rack/ssl'
 end

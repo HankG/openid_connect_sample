@@ -14,12 +14,12 @@ class Client < ActiveRecord::Base
   validates :secret,     presence: true
   validates :name,       presence: true
 
-  scope :dynamic, where(dynamic: true)
+  scope :dynamic, lambda {
+    where(dynamic: true)
+  }
+
   scope :valid, lambda {
-    where {
-      (expires_at == nil) |
-      (expires_at >= Time.now.utc)
-    }
+    where('expires_at IS NULL OR expires_at >= ? ', Time.now.utc)
   }
 
   class << self

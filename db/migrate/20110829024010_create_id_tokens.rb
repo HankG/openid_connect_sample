@@ -1,4 +1,4 @@
-class CreateIdTokens < ActiveRecord::Migration
+class CreateIdTokens < ActiveRecord::Migration[5.1]
   def self.up
     create_table :id_tokens do |t|
       t.belongs_to :account, :client

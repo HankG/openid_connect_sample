@@ -1,4 +1,4 @@
-class CreateAccessTokenScopes < ActiveRecord::Migration
+class CreateAccessTokenScopes < ActiveRecord::Migration[5.1]
   def self.up
     create_table :access_token_scopes do |t|
       t.belongs_to :access_token, :scope

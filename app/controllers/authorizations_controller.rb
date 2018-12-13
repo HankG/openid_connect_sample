@@ -10,7 +10,7 @@ class AuthorizationsController < ApplicationController
   end
 
   def create
-    call_authorization_endpoint :allow_approval, params[:approve]
+    call_authorization_endpoint :allow_approval, params.require(:approve)
   end
 
   private

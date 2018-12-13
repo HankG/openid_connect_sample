@@ -1,6 +1,6 @@
 class DiscoveryController < ApplicationController
   def show
-    case params[:id]
+    case params.require(:id)
     when 'webfinger'
       webfinger_discovery
     when 'openid-configuration'
@@ -19,7 +19,7 @@ class DiscoveryController < ApplicationController
         href: IdToken.config[:issuer]
       }]
     }
-    jrd[:subject] = params[:resource] if params[:resource].present?
+    jrd[:subject] = params.require(:resource) if params.has_key?(:resource)
     render json: jrd, content_type: Mime::JRD
   end
 

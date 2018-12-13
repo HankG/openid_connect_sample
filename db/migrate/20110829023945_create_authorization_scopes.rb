@@ -1,4 +1,4 @@
-class CreateAuthorizationScopes < ActiveRecord::Migration
+class CreateAuthorizationScopes < ActiveRecord::Migration[5.1]
   def self.up
     create_table :authorization_scopes do |t|
       t.belongs_to :authorization, :scope

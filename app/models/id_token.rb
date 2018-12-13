@@ -10,7 +10,7 @@ class IdToken < ActiveRecord::Base
   validates :client,  presence: true
 
   scope :valid, lambda {
-    where { expires_at >= Time.now.utc }
+    where('expires_at >= ?', Time.now.utc)
   }
 
   def to_response_object(with = {})

@@ -1,11 +1,11 @@
 class Connect::GoogleController < ApplicationController
-  before_filter :require_anonymous_access
+  before_action :require_anonymous_access
 
   def show
-    if params[:code].blank? || session[:state] != params[:state]
+    if params.require(:code).blank? || session[:state] != params.require(:state)
       raise AuthenticationRequired.new
     end
-    authenticate Connect::Google.authenticate(params[:code])
+    authenticate Connect::Google.authenticate(params.require(:code))
     logged_in!
   end
 

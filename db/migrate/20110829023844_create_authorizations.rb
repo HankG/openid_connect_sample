@@ -1,4 +1,4 @@
-class CreateAuthorizations < ActiveRecord::Migration
+class CreateAuthorizations < ActiveRecord::Migration[5.1]
   def self.up
     create_table :authorizations do |t|
       t.belongs_to :account, :client

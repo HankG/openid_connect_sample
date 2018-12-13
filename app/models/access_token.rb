@@ -13,7 +13,7 @@ class AccessToken < ActiveRecord::Base
   validates :expires_at, presence: true
 
   scope :valid, lambda {
-    where { expires_at >= Time.now.utc }
+    where('expires_at >= ?', Time.now.utc)
   }
 
   def to_bearer_token

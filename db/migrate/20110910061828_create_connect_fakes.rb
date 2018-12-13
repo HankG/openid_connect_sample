@@ -1,4 +1,4 @@
-class CreateConnectFakes < ActiveRecord::Migration
+class CreateConnectFakes < ActiveRecord::Migration[5.1]
   def self.up
     create_table :connect_fakes do |t|
       t.belongs_to :account

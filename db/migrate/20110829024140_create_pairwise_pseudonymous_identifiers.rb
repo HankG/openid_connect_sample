@@ -1,4 +1,4 @@
-class CreatePairwisePseudonymousIdentifiers < ActiveRecord::Migration
+class CreatePairwisePseudonymousIdentifiers < ActiveRecord::Migration[5.1]
   def self.up
     create_table :pairwise_pseudonymous_identifiers do |t|
       t.belongs_to :account
